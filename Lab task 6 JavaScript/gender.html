@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Gender</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Gender</legend>
+            <input type="radio" id="male" name="gender" value="">Male 
+            <input type="radio" id="female" name="gender" value="">Female 
+            <input type="radio" id="others" name="gender" value="">Others
+        </fieldset>
+        <input type="button" name="click" value="click" onclick="genderfunc()">
+        
+        <script>
+                function genderfunc(){
+                let male = document.getElementById('male').checked;
+                let female = document.getElementById('female').checked;
+                let others = document.getElementById('others').checked;
+                if(male == true)
+                {
+                    alert("Male");
+                }
+                else if(female == true)
+                {
+                    alert("Female");
+                }
+                else if(others == true)
+                {
+                    alert("Others");
+                }
+                else{
+                    alert("Choose a gender!");
+                }
+            }
+        </script>
+    </body>
+</html>
+

@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Blood Group</title>
+    </head>
+    <body>
+        <select id='bg' name="bg">
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+        </select>
+        <hr>
+        <input type="button" name="click" value="click" onclick="bgfunc()">
+
+
+        <script>
+            function bgfunc()
+            {
+                let bg = document.getElementById('bg').selectedText;
+                if(bg=='')
+                {
+                    alert("Select a blood group!");
+                }
+            }
+        </script>
+    </body>
+</html>

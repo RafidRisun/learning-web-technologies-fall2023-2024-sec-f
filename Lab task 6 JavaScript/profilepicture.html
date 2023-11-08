@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Profile Picture</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Profile Picture</legend>
+            User ID<input type="text" id="id" name="id"><br>
+            Picture<input type="file" id="file" name="file"><br>
+            <hr>
+            <input type="button" name="click" value="click" onclick="pfpfunc()">
+        </fieldset>
+        
+        <script>
+                function pfpfunc(){
+                let id = document.getElementById('id').value;
+                let pfp = document.getElementById('file').value;
+                if(id == '')
+                {
+                    alert("User ID is NULL!");
+                }
+                if(pfp == '')
+                {
+                    alert("Choose a Profile Picture!")
+                }
+            }
+        </script>
+    </body>
+</html>
+

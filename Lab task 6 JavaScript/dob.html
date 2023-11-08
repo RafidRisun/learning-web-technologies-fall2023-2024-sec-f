@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Date of Birth</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Date of Birth</legend>
+            <table>
+                <tr>
+                    <td>dd</td>
+                    <td>mm</td>
+                    <td>yyyy</td>
+                </tr>
+                <tr>
+                    <td><input type="number" id='date' name="date">/</td>
+                    <td><input type="number" id='month' name="month">/</td>
+                    <td><input type="number" id='year' name="year"></td>
+                </tr>
+            </table>
+        </fieldset>
+        <input type="button" name="click" value="click" onclick="dobfunc()">
+    
+        <script>
+                function dobfunc(){
+                let date = document.getElementById('date').value;
+                let month = document.getElementById('month').value;
+                let year = document.getElementById('year').value;
+                if(date<1 || date>31)
+                {
+                    alert("Invalid Date");
+                }
+                if(month<1 || month>12)
+                {
+                    alert("Invalid Month");
+                }
+                if(year<1990 || year>2016 )
+                {
+                    alert("Invalid Year");
+                }
+            }
+        </script>
+    </body>
+</html>
+

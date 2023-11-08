@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Degree</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Degree</legend>
+            <input type="checkbox" id="SSC" name="degree" value="">SSC
+            <input type="checkbox" id="HSC" name="degree" value="">HSC
+            <input type="checkbox" id="BSc" name="degree" value="">BSc
+        </fieldset>
+        <input type="button" name="click" value="click" onclick="degreefunc()">
+        
+        <script>
+                function degreefunc(){
+                let SSC = document.getElementById('SSC').checked;
+                let HSC = document.getElementById('HSC').checked;
+                let BSc = document.getElementById('BSc').checked;
+                if(SSC == true)
+                {}
+                else if(HSC == true)
+                {}
+                else if(BSc == true)
+                {}
+                else{
+                    alert("Choose a Degree!");
+                }
+            }
+        </script>
+    </body>
+</html>
+
