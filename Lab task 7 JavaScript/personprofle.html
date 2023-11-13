@@ -1,0 +1,191 @@
+<html>
+    <head>
+        <title>Person</title>
+    </head>
+    <body>
+        <center>
+            <table border="1px">
+                <tr>
+                    <td colspan="3"><center><h2>PERSON PROFILE</h2></center></td>
+                </tr>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td colspan="2">
+                        <input type="text" id='username' name="username" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email
+                    </td>
+                    <td colspan="2">
+                        <input type="email" id='email' name="email" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Gender
+                    </td>
+                    <td colspan="2">
+                            <input type="radio" id="male" name="gender" value="">Male 
+                            <input type="radio" id="female" name="gender" value="">Female 
+                            <input type="radio" id="others" name="gender" value="">Others
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Date Of Birth
+                    </td>
+                    <td colspan="2">
+                            <table>
+                                <tr>
+                                    <td>dd</td>
+                                    <td>mm</td>
+                                    <td>yyyy</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="number" id='date' name="date">/</td>
+                                    <td><input type="number" id='month' name="month">/</td>
+                                    <td><input type="number" id='year' name="year"></td>
+                                </tr>
+                            </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Blood Group
+                    </td>
+                    <td colspan="2">
+                        <select id='bg' name="bg">
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Degree
+                    </td>
+                    <td colspan="2">
+                            <input type="checkbox" id="SSC" name="degree" value="">SSC
+                            <input type="checkbox" id="HSC" name="degree" value="">HSC
+                            <input type="checkbox" id="BSc" name="degree" value="">BSc
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Photo
+                    </td>
+                    <td colspan="2">
+                            Picture<input type="file" id="file" name="file"><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    
+                    <td colspan="3">
+                        <center><input type="button" name="click" value="Submit" onclick="personfunc()"></center>
+                        <center><input type="button" value="Reset" onClick="window.location.reload(true)"></center>
+                    </td>
+                </tr>
+            </table>
+        </center>
+        <script>
+            function personfunc(){
+                let username = document.getElementById('username').value;
+                if(username == '')
+                {
+                    alert("User Name is NULL!");
+                }
+                if(username.length<2)
+                {
+                    alert("User Name too short!")
+                }
+                let first = username.charCodeAt(0);
+                if(!(first>=65 && first<=90)&&!(first>=97 && first<=122))
+                {
+                    alert("User Name must start with a Letter!");
+                }
+
+                let mail = document.getElementById('email').value;
+                if(mail == '')
+                {
+                    alert("Email is NULL!");
+                }
+                if(!(mail.includes("@")) && !(mail.includes(".com")))
+                {
+                    alert("Invalid Email Format");
+                }
+
+                let male = document.getElementById('male').checked;
+                let female = document.getElementById('female').checked;
+                let others = document.getElementById('others').checked;
+                if(male == true)
+                {
+                }
+                else if(female == true)
+                {
+                }
+                else if(others == true)
+                {
+                }
+                else{
+                    alert("Choose a gender!");
+                }
+
+                let date = document.getElementById('date').value;
+                let month = document.getElementById('month').value;
+                let year = document.getElementById('year').value;
+                if(date<1 || date>31)
+                {
+                    alert("Invalid Date");
+                }
+                if(month<1 || month>12)
+                {
+                    alert("Invalid Month");
+                }
+                if(year<1990 || year>2016 )
+                {
+                    alert("Invalid Year");
+                }
+
+                
+                let bg = document.getElementById('bg').selectedText;
+                if(bg=='')
+                {
+                    alert("Select a blood group!");
+                }
+
+                let SSC = document.getElementById('SSC').checked;
+                let HSC = document.getElementById('HSC').checked;
+                let BSc = document.getElementById('BSc').checked;
+                if(SSC == true)
+                {}
+                else if(HSC == true)
+                {}
+                else if(BSc == true)
+                {}
+                else{
+                    alert("Choose a Degree!");
+                }
+
+                let pfp = document.getElementById('file').value;
+                if(pfp == '')
+                {
+                    alert("Choose a Profile Picture!")
+                }
+            
+            }
+        </script>
+    </body>
+</html>
