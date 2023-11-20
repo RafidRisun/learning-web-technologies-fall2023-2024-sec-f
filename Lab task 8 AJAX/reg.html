@@ -50,6 +50,39 @@
                             <center><input type="button" name="click" value="Submit" onclick="reg()"></center>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            Update a user:
+                        </td>
+                        <td>
+                            <input type="text" id="updateUser" name="updateUser" value="">
+                        </td>
+                        <td>
+                            <input type="button" name="click" value="Go" onclick="update()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Delete a user:
+                        </td>
+                        <td>
+                            <input type="text" id="deleteUser" name="updateUser" value="">
+                        </td>
+                        <td>
+                            <input type="button" name="click" value="Go" onclick="del()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Search a user:
+                        </td>
+                        <td>
+                            <input type="text" id="searchUser" name="updateUser" value="">
+                        </td>
+                        <td>
+                            <input type="button" name="click" value="Go" onclick="search()">
+                        </td>
+                    </tr>
                 </table>
         </center>
         <script>
@@ -71,6 +104,52 @@
                 }
 
                 xhttp.send('empname='+empname+'&&comname='+comname+'&&contact='+contact+'&&username='+username+'&&password='+password);
+            }
+
+            function update(){
+                let empname = document.getElementById('empname').value;
+                let comname = document.getElementById('comname').value;
+                let contact = document.getElementById('contact').value;
+                let username = document.getElementById('username').value;
+                let password = document.getElementById('password').value;
+                let xhttp = new XMLHttpRequest();
+                xhttp.open('POST', 'update.php', true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status == 200){
+                        alert("Employer Updated");
+                    }
+                }
+
+                xhttp.send('empname='+empname+'&&comname='+comname+'&&contact='+contact+'&&username='+username+'&&password='+password);
+            }
+
+            function del(){
+                let username = document.getElementById('username').value;
+                let xhttp = new XMLHttpRequest();
+                xhttp.open('POST', 'del.php', true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status == 200){
+                        alert("Employer Deleted");
+                    }
+                }
+
+                xhttp.send('username='+username);
+            }
+
+            function search(){
+                let username = document.getElementById('username').value;
+                let xhttp = new XMLHttpRequest();
+                xhttp.open('POST', 'search.php', true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status == 200){
+                        alert("Employer Found");
+                    }
+                }
+
+                xhttp.send('username='+username);
             }
         </script>
     </body>
