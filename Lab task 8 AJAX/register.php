@@ -8,7 +8,7 @@
     $pass = $_POST['password'];
 
     $con = getConnection();
-    $sql = "INSERT INTO employer (empname, comname, contact, username, pass) values ('{$empname}', '{$comname}', '{$contact}', '{$username}', '{$pass}')";
+    $sql = "insert into employer (empname, comname, contact, username, pass) values ('{$empname}', '{$comname}', '{$contact}', '{$username}', '{$pass}')";
 
 
 

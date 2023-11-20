@@ -1,6 +1,6 @@
 <?php
     $dbhost = "localhost";
-    $dbname = "DigitalArtMarketplace";
+    $dbname = "employer";
     $dbuser = "root";
     $dbpass = "";
 
