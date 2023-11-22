@@ -8,8 +8,8 @@
     $pass = $_POST['password'];
 
     $con = getConnection();
-    $sql = "update employer set empname = '{$empname}', comname = '{$comname}', contact = '{$contact}', pass = '{$pass}' where username = '{$username}'";
-
+    $sql = "update employer set empname = '{$empname}', comname = '{$comname}', contact = '{$contact}', password = '{$pass}' where username = '{$username}'";
+    $result = mysqli_query($con, $sql);
 
 
 ?>

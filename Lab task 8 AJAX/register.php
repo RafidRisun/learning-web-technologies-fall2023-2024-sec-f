@@ -8,7 +8,8 @@
     $pass = $_POST['password'];
 
     $con = getConnection();
-    $sql = "insert into employer (empname, comname, contact, username, pass) values ('{$empname}', '{$comname}', '{$contact}', '{$username}', '{$pass}')";
+    $sql = "insert into employer (empname, comname, contact, username, password) values ('{$empname}', '{$comname}', '{$contact}', '{$username}', '{$pass}')";
+    $result = mysqli_query($con, $sql);
 
 
 
