@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>
+            Login
+        </title>
+    </head>
+    <body>
+        <center>
+            <table>
+                <tr>
+                    <td>
+                        ID:
+                    </td>
+                    <td>
+                        <input type="text" id='id' name="id" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Password:
+                    </td>
+                    <td>
+                        <input type="text" id='password' name="password" value="">
+                    </td>
+                </tr>
+                <td>
+                    <td>
+                        <input type="submit" name="submit" value="Submit" onclick="login()">
+                    </td>
+                </td>
+            </table>
+        </center>
+
+        <script>
+            function login(){
+                let id = document.getElementById('id').value;
+                let password = document.getElementById('password').value;
+
+                if(id =="" || password == ""){
+                    alert("Empty ID or Password!");
+
+                }
+            }
+
+        </script>
+    </body>
+</html>
