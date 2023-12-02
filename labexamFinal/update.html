@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>
+            Update
+        </title>
+    </head>
+    <body>
+        <center>
+            <table>
+                <tr>
+                    <td>
+                        Employee Name:
+                    </td>
+                    <td>
+                        <input type="text" id='name' name="name" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Employee ID:
+                    </td>
+                    <td>
+                        <input type="text" id='id' name="id" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Password:
+                    </td>
+                    <td>
+                        <input type="text" id='password' name="password" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="Submit" onclick="upfun()">
+                    </td>
+                </tr>
+            </table>
+        </center>
+
+        <script>
+            function upfun(){
+                let name = document.getElementById('name').value;
+                let id = document.getElementById('id').value;
+                let password = document.getElementById('password').value;
+
+                let xhttp = new XMLHttpRequest();
+                
+                xhttp.open('POST', 'regi.php', true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    alert(this.responseText);
+                }
+            }
+            xhttp.send('name='+name+'&id='+id+'&password='+password);
+        }
+
+
+        
+        </script>
+    </body>
+</html>
