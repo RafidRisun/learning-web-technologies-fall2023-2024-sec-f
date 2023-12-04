@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>
+            Registration
+        </title>
+    </head>
+    <body>
+        <center>
+        <form method="post" action="../controllers/registerCheck.php" enctype="">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" id='name' name="name" value=""></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="text" id='phone' name="phone" value=""></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" id='email' name="email" value="" onblur="emailfunc()"></td> <td id='em'></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" id='password' name="password" value=""></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password:</td>
+                    <td><input type="password" id='confirmpassword' name="confirmpassword" value=""></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" name="submit" value="Register" onclick="return verify()"></td>
+                </tr>
+            </table>
+        </form>
+        </center>
+        <script>
+            function emailfunc(){
+                let email = document.getElementById('email').value;
+                let xhttp = new XMLHttpRequest();
+
+                xhttp.open('POST', '../controllers/emailCheck.php', true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status == 200){
+                        document.getElementById('em').innerHTML = this.responseText;
+                    }
+                }
+
+                xhttp.send('email='+email);
+            }
+
+            function verify(){
+                let name = document.getElementById('name').value;
+                let phone = document.getElementById('phone').value;
+                let email = document.getElementById('email').value;
+                let password = document.getElementById('password').value;
+                let confirmpassword = document.getElementById('confirmpassword').value;
+                
+                if(name == ''){
+                    alert("Missing Name");  
+                    return false;                  
+                }
+                if(phone == ''){
+                    alert("Missing phone");  
+                    return false;                  
+                }
+                if(email == ''){
+                    alert("Missing email");  
+                    return false;                  
+                }
+                if(password == ''){
+                    alert("Missing password");  
+                    return false;                  
+                }
+                if(confirmpassword == ''){
+                    alert("Missing confirm password");  
+                    return false;                  
+                }
+                if(confirmpassword != password){
+                    alert("Passwords does not match");  
+                    return false;                  
+                }
+                return true;
+            }
+        </script>
+    </body>
+</html>
