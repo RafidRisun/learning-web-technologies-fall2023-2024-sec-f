@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>
+            Admin Home
+        </title>
+    </head>
+        <body>
+            <center>
+                <h1 id="name"></h1>
+                <a href="profile.html">Profile</a>
+                <a href="changepassword.html">Change Password</a>
+                <a href="viewusers.html">View Users</a>
+                <a href="logout.html">Log Out</a>
+            </center>
+        <script>
+        window.onload = function n(){
+            let xhttp = new XMLHttpRequest();
+            xhttp.open('POST', '../controllers/adminhome.php', true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                let std = JSON.parse(this.responseText);
+                let title = `Welcome `;
+                title+= `${std[i].username}`;
+                document.getElementById('name').innerHTML = title;
+            }
+        };
+    }
+        </script>
+        </body>
+</html>

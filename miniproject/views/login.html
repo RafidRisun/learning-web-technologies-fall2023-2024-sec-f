@@ -1,0 +1,37 @@
+<html>
+<header>
+    <title>Login</title>
+</header>
+
+<body>
+    <form method="post" action="../controllers/loginCheck.php" enctype="">
+        <fieldset>
+            <legend>LOGIN</legend>
+            User Id : <input type="text" id="id" name="id" value=""><br>
+            Password : <input type="password" id="password" name="password" value=""><br>
+            <hr>
+            <input type="submit" name="submit" value="Login" onclick="verify()">
+            <a href="../index.html">Register</a>
+        </fieldset>
+    </form>
+    <script>
+        function verify(){
+                let id = document.getElementById('id').value;
+                let password = document.getElementById('password').value;
+
+                if(id == "")
+                {
+                    document.getElementById('in1').innerHTML="Enter an ID";
+                    return false;
+                }
+                if(password == "")
+                {
+                    document.getElementById('in2').innerHTML="Enter a Password";
+                    return false;
+                }
+                return true;
+            }
+    </script>
+</body>
+
+</html>

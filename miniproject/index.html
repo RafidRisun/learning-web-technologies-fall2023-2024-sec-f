@@ -1,0 +1,108 @@
+<html>
+<header>
+    <title>Registration</title>
+</header>
+
+<body>
+    <form method="post" action="controllers/registrationCheck.php" enctype="" onsubmit="return verify()">
+        <fieldset>
+            <legend>
+                REGISTRATION
+            </legend>
+            <table>
+                <tr>
+                    <td>Id</td>
+                    <td>:<input type="text" id='id' name="id"></td><td id='in1'></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>:<input type="password" id='password' name="password"></td><td id='in2'></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password</td>
+                    <td>:<input type="password" id='confrmpass' name="confirmpass"></td><td id='in3'></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>:<input type="text" id='name' name="name"></td><td id='in4'></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:<input type="email" id='email' name="email"></td><td id='in5'></td>
+                </tr>
+                <tr>
+                    <td>User Type <i>[user/Admin]</i></td>
+                    <td>
+                        <select name="type" id='type'>
+                            <option value="Admin">Admin</option>
+                            <option value="User">User</option>
+                        </select>
+                    </td>
+                    <td id='in6'></td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- <input type="submit" name="submit" value="Register" onclick="return verify()"> -->
+                        <input type="submit" name="submit" value="Register">
+                        <a href="views/login.html">Login</a>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+    <script>
+        function verify(){
+                let id = document.getElementById('id').value;
+                let password = document.getElementById('password').value;
+                let confirmpassword = document.getElementById('confirmpassword').value;
+                let name = document.getElementById('name').value;
+                let email = document.getElementById('email').value;
+                let type = document.getElementById('type').selectedText;
+
+                if(id == "")
+                {
+                    document.getElementById('in1').innerHTML="Enter an ID";
+                    return false;
+                }
+                if(password == "")
+                {
+                    document.getElementById('in2').innerHTML="Enter a Password";
+                    return false;
+                }
+                if(confirmpassword == "")
+                {
+                    document.getElementById('in3').innerHTML="Enter a Confirm Password";
+                    return false;
+                }
+                if(name == "")
+                {
+                    document.getElementById('in4').innerHTML="Enter a Name";
+                    return false;
+                }
+                if(email == "")
+                {
+                    document.getElementById('in5').innerHTML="Enter an Email";
+                    return false;
+                }
+                if(!(email.includes('@') && email.includes('.') &&  email.indexOf('@') + 1 < email.indexOf('.') && email.indexOf('@') != email.length - 1 && email.indexOf('.') != email.length - 1 && email.length >= 4 ))
+                {
+                    document.getElementById('in5').innerHTML = "Email Must Be Valid!";
+                    return false;
+                }
+                    
+                if(type == 0)
+                {
+                    document.getElementById('in6').innerHTML="Enter a Type";
+                    return false;
+                }
+                if(password!=confirmpassword)
+                {
+                    document.getElementById('in3').innerHTML="Password does not match";
+                    return false;
+                }
+                    return true;
+            }
+    </script>
+</body>
+
+</html>
